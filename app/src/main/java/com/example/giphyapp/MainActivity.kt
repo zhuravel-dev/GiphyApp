@@ -2,6 +2,8 @@ package com.example.giphyapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.giphy.sdk.ui.Giphy
 
 class MainActivity : AppCompatActivity() {
@@ -15,6 +17,11 @@ class MainActivity : AppCompatActivity() {
             true,
         )
 
+        fun setupRecyclerView(){
+            val myRecyclerView = findViewById<RecyclerView>(R.id.recycler_view)
+            myRecyclerView.layoutManager = LinearLayoutManager(this)
+
+        }
 
     }
 }
