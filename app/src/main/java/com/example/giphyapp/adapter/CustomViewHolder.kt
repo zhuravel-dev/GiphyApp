@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.giphyapp.DetailsClickListener
 import com.example.giphyapp.R
 import com.example.giphyapp.models.Json4Kotlin_Base
+import com.example.giphyapp.models.Meta
 import com.giphy.sdk.ui.views.GifView
 import java.net.MalformedURLException
 import java.net.URL
@@ -22,12 +23,12 @@ class CustomViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
     private val executor = Executors.newSingleThreadExecutor()
     private val uiHandler = Handler(Looper.getMainLooper())
     private val gifView: GifView by lazy {
-        itemView.findViewById(R.id.image)
+        itemView.findViewById(R.id.gifView)
     }
 
 
-    fun bind(result: Json4Kotlin_Base, clickListener: DetailsClickListener?) {
-        setGif(result.meta, gifView)
+    fun bind(result: Meta, clickListener: DetailsClickListener?) {
+        setGif(result.response_id, gifView)
         itemView.setOnClickListener {
             clickListener?.onClick(result)
         }

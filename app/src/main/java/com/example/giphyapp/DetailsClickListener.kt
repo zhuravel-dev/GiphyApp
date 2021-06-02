@@ -1,9 +1,10 @@
 package com.example.giphyapp
 
-import com.example.giphyapp.models.Json4Kotlin_Base
+
+import com.example.giphyapp.models.Meta
 
 interface DetailsClickListener {
 
-    fun onClick(results: Json4Kotlin_Base)
+    fun onClick(results: Meta)
 
 }

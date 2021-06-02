@@ -7,15 +7,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.giphyapp.DetailsClickListener
 import com.example.giphyapp.R
 import com.example.giphyapp.models.Json4Kotlin_Base
+import com.example.giphyapp.models.Meta
 
 class Adapter : RecyclerView.Adapter<CustomViewHolder>() {
 
 
-    private var listOfGifs : MutableList<Json4Kotlin_Base> = mutableListOf()
+    private var listOfGifs : MutableList<Meta> = mutableListOf()
     var myClickListener: DetailsClickListener? = null
 
 
-    fun setData(response: List<Json4Kotlin_Base>){
+    fun setData(response: List<Meta>){
         listOfGifs.addAll(response)
         notifyDataSetChanged()
     }

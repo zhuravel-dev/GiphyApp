@@ -6,6 +6,7 @@ import android.widget.ProgressBar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.giphyapp.adapter.Adapter
+import com.example.giphyapp.models.Meta
 import com.giphy.sdk.ui.Giphy
 
 class MainActivity : AppCompatActivity(), DetailsClickListener {
@@ -37,5 +38,9 @@ class MainActivity : AppCompatActivity(), DetailsClickListener {
             myRecyclerView.adapter = this.adapter
         }
 
+    }
+
+    override fun onClick(results: Meta) {
+        TODO("Not yet implemented")
     }
 }
