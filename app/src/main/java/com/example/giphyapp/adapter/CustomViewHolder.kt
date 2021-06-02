@@ -8,6 +8,7 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.example.giphyapp.DetailsClickListener
 import com.example.giphyapp.R
+import com.example.giphyapp.models.Data
 import com.example.giphyapp.models.Preview_gif
 import com.giphy.sdk.ui.views.GifView
 import java.net.MalformedURLException
@@ -24,7 +25,7 @@ class CustomViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
     }
 
 
-    fun bind(result: Preview_gif, clickListener: DetailsClickListener?) {
+    fun bind(result: Data, clickListener: DetailsClickListener?) {
         setGif(result.url, gifView)
         itemView.setOnClickListener {
             clickListener?.onClick(result)

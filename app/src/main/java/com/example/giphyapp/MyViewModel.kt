@@ -18,8 +18,8 @@ class MyViewModel : ViewModel() {
     val showProgress: LiveData<Boolean> = _showProgress
 
 
-    private val _setData = MutableLiveData<List<Data>>()
-    val setData: LiveData<List<Data>> = _setData
+    private val _setData = MutableLiveData<Data>()
+    val setData: LiveData<Data> = _setData
 
     private val _after = MutableLiveData<String>()
     val after: LiveData<String> = _after
