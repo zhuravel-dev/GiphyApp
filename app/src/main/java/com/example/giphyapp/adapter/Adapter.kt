@@ -6,17 +6,16 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.giphyapp.DetailsClickListener
 import com.example.giphyapp.R
-import com.example.giphyapp.models.Json4Kotlin_Base
-import com.example.giphyapp.models.Meta
+import com.example.giphyapp.models.Preview_gif
 
 class Adapter : RecyclerView.Adapter<CustomViewHolder>() {
 
 
-    private var listOfGifs : MutableList<Meta> = mutableListOf()
+    private var listOfGifs : MutableList<Preview_gif> = mutableListOf()
     var myClickListener: DetailsClickListener? = null
 
 
-    fun setData(response: List<Meta>){
+    fun setData(response: List<Preview_gif>){
         listOfGifs.addAll(response)
         notifyDataSetChanged()
     }
