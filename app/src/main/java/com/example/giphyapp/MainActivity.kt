@@ -5,9 +5,17 @@ import android.os.Bundle
 import android.widget.ProgressBar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.giphyapp.adapter.Adapter
 import com.giphy.sdk.ui.Giphy
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), DetailsClickListener {
+
+
+    val adapter by lazy {
+        Adapter().apply {
+            myClickListener = this@MainActivity
+        }
+    }
 
 
     private var progressBar: ProgressBar? = null
@@ -26,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         fun setupRecyclerView(){
             val myRecyclerView = findViewById<RecyclerView>(R.id.recycler_view)
             myRecyclerView.layoutManager = LinearLayoutManager(this)
-
+            myRecyclerView.adapter = this.adapter
         }
 
     }
