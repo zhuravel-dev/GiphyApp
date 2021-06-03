@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.giphyapp.adapter.Adapter
 import com.example.giphyapp.models.Data
-import com.example.giphyapp.models.Preview_gif
 import com.giphy.sdk.ui.Giphy
 
 
@@ -28,6 +27,13 @@ class MainActivity : AppCompatActivity(), DetailsClickListener {
         override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+            if (savedInstanceState == null) {
+                supportFragmentManager.commit {
+                    setReorderingAllowed(true)
+                    add<FragmentGif>(R.id.fragment_container_view)
+                }
+            }
+        }
 
             setupRecyclerView()
             progressBar = findViewById(R.id.progress_bar)
@@ -39,10 +45,7 @@ class MainActivity : AppCompatActivity(), DetailsClickListener {
             "5PqUpVUIFD2OwKoADDXgL4rTC4i7lgJh",
             true,
         )
-
-
     }
-
 
 
     fun setupRecyclerView(){
@@ -50,7 +53,6 @@ class MainActivity : AppCompatActivity(), DetailsClickListener {
         myRecyclerView.layoutManager = LinearLayoutManager(this)
         myRecyclerView.adapter = this.adapter
     }
-
 
 
 
@@ -64,7 +66,6 @@ class MainActivity : AppCompatActivity(), DetailsClickListener {
         viewModel?.after?.observe(this) { t -> this@MainActivity.after }
 
     }
-
 
 
 
