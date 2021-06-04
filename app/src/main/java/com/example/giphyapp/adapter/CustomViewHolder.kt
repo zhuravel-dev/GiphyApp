@@ -1,10 +1,12 @@
 package com.example.giphyapp.adapter
 
+import android.annotation.SuppressLint
 import android.graphics.BitmapFactory
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import android.view.View
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.giphyapp.DetailsClickListener
 import com.example.giphyapp.R
@@ -26,19 +28,20 @@ class CustomViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
 
 
     fun bind(result: Data, clickListener: DetailsClickListener?) {
-        setGif(result.url, gifView)
+        setGif(result.image_url, gifView)
         itemView.setOnClickListener {
             clickListener?.onClick(result)
         }
     }
 
 
-    private fun setGif(link: String, gifView: GifView) {
+    @SuppressLint("LogNotTimber")
+    private fun setGif(link: String, imageView: ImageView) {
         try {
             val url = URL(link)
             executor.submit {
                 val bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream())
-                uiHandler.post {gifView.setImageURI("https://api.giphy.com/v1/gifs/random?api_key=5PqUpVUIFD2OwKoADDXgL4rTC4i7lgJh&q=&limit=25&offset=0&rating=g&lang=en") }
+                uiHandler.post { imageView.setImageBitmap(bmp) }
             }.get()
         } catch (ex: MalformedURLException) {
             Log.e(CustomViewHolder::class.java.simpleName, ex.localizedMessage.orEmpty())
