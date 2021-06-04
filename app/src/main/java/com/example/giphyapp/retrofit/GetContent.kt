@@ -1,5 +1,6 @@
 package com.example.giphyapp.retrofit
 
+import com.example.giphyapp.models.Json4Kotlin_Base
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 
 
-class FragmentGif: Fragment(R.id.full_gif) {
+class FragmentGif: Fragment(R.id.fragment_container_view) {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // return super.onCreateView(inflater, container, savedInstanceState)

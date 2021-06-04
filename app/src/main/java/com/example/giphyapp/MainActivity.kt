@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ProgressBar
 import androidx.core.view.isVisible
+import androidx.fragment.app.add
+import androidx.fragment.app.commit
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -33,18 +35,20 @@ class MainActivity : AppCompatActivity(), DetailsClickListener {
                     add<FragmentGif>(R.id.fragment_container_view)
                 }
             }
-        }
+
+
+            Giphy.configure(
+                this,
+                "5PqUpVUIFD2OwKoADDXgL4rTC4i7lgJh",
+                true,
+            )
+
 
             setupRecyclerView()
             progressBar = findViewById(R.id.progress_bar)
             viewModel = ViewModelProvider(this).get(MyViewModel::class.java)
             observeLiveData()
 
-        Giphy.configure(
-            this,
-            "5PqUpVUIFD2OwKoADDXgL4rTC4i7lgJh",
-            true,
-        )
     }
 
 

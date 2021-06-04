@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.giphyapp.DetailsClickListener
 import com.example.giphyapp.R
 import com.example.giphyapp.models.Data
-import com.example.giphyapp.models.Preview_gif
 
 class Adapter : RecyclerView.Adapter<CustomViewHolder>() {
 
@@ -16,8 +15,8 @@ class Adapter : RecyclerView.Adapter<CustomViewHolder>() {
     var myClickListener: DetailsClickListener? = null
 
 
-    fun setData(response: List<Data>){
-        listOfGifs.addAll(response)
+    fun setData(response: Data){
+        listOfGifs.addAll(listOf(response))
         notifyDataSetChanged()
     }
 
